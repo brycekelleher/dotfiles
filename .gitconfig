@@ -1,0 +1,23 @@
+[user]
+	email = bryce_kelleher@hotmail.com
+	name = brycek
+[alias]
+	c = commit
+	ci = commit
+	s = status
+	st = status
+	di = diff
+	co = checkout
+	b = branch
+	bd = branch -d
+	k = !gitk --all
+	g = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	d = difftool
+[diff]
+	tool = gvimdiff
+[difftool]
+	prompt = 0
+[color]
+	ui = true
+[push]
+	default = simple
