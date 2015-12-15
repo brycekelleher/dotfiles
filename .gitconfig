@@ -2,6 +2,7 @@
 	email = bryce_kelleher@hotmail.com
 	name = brycek
 [alias]
+	a = add
 	c = commit
 	ci = commit
 	s = status
