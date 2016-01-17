@@ -3,17 +3,19 @@
 	name = brycek
 [alias]
 	a = add
-	c = commit
-	ci = commit
-	s = status
-	st = status
-	di = diff
-	co = checkout
 	b = branch
-	bd = branch -d
-	k = !gitk --all
+	c = commit
+	d = diff
 	g = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
-	d = difftool
+	k = !gitk --all
+	s = status
+	di = diff
+	dt = difftool
+	ci = commit
+	co = checkout
+	br = branch
+	bd = branch -d
+	st = status
 [diff]
 	tool = gvimdiff
 [difftool]
