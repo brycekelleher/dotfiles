@@ -1,0 +1,142 @@
+#if ( ! $?DCONFIG ) then
+#set prompt = '%{\033[33m%}%/%{\033[0m%} \n[%n@%m]$ '
+#else
+#set prompt = '%{\033[33m%}%$DCONFIG:%/%{\033[0m%} \n[%n@%m]$ '
+#endif
+##set prompt="%{\e[32;1m%}%n%{\e[37m%}@%{\e[33m%}%m%{\e[37m%}:%{\e[36m%}%~%{\e[37m%}"\$"%{\e[0m%} "
+
+
+#==========================================
+#   GENERAL SETTINGS/UNIX CMD SHORTCUTS
+#------------------------------------------
+
+function mana { cat $HOME/dotfiles/.aliases | cut -f 1 -d ' ' --complement | grep --color -i "$1"; }
+
+#alias igg	   'source $HOME/.aliases.ina; echo "-- Re-sourced aliases..."'
+#alias iggg	   'source $HOME/.cshrc; echo "-- Re-sourced cshrc..."; igg'
+
+#alias lrt 	   'ls -lrt'
+#alias lll 	   'll |less \!*'
+#alias fnd 	   'find . -name \!^'
+#alias cls 	   'clear'
+#alias untgz	   'tar -zxvf'
+#alias makenewtar	'gtar -cvfz packed_files.tar.gz dir_to_pack'
+
+# search entire directory
+#alias gfile 	'gfind ./ -type f -name "*" | grep -v RCS | xargs egrep -i -l \!*'
+
+alias l='less -S -N -i'
+alias m='more'
+#alias vi 	   'vim'
+#alias p4vi     'p4 edit \!:* ; p4c editor \!:*'
+#alias p4diff   'setenv P4DIFF \!:*'
+
+#alias xterm      'xterm -fg darkgreen -bg black'
+#alias dve        'xterm -e dve'
+
+#alias p4donthave '( p4 changes $ROGUEROOT/...#have ; p4 changes $ROGUEROOT/...#head ) | sort | uniq -u'
+#alias p4rr       '~hgj/bin/p4RoguerootInfo'
+#alias home	   'cd $HOME'
+
+#unalias setup*
+#alias cdRR        'cd $ROGUEROOT/rogue'
+#alias cdRRR       'cd $ROGUEROOT/rogue/regression'
+#
+#alias setrgx      'source $HOME/bin/setup_rogue.csh \!*; igg; mysetup'
+#alias setRR       'setenv ROGUEROOT `pwd | sed "s#/rogue\>.*##" `; source $ROGUEROOT/project.csh; mysetup'
+#alias mysetup     'source $HOME/scripts/setup_scripts/display_shell.csh; checkgrid'
+#alias myrr        'echo -- ROGUEROOT = $ROGUEROOT -- DCONFIG = $DCONFIG --'
+
+#alias grep_config 'make DCONFIG=\!:1 --no-print-directory -C $ROGUEROOT/rogue/sim/work print_config | tr " " "\n" |grep --color -i  \!:2'
+
+#alias hist	   'history'
+#alias gvim	   '/usr/bin/gvim -u $HOME/.myvimrc --'
+#alias vim	   'vim -u $HOME/.myvimrc --'
+
+alias ls='ls -h --color'
+alias ll='ls -l'
+alias la='ls -a'
+alias lal='ls -al'
+alias lx='ls -lXB'         #  Sort by extension.
+alias lk='ls -lSr'         #  Sort by size, biggest last.
+alias lt='ls -ltr'         #  Sort by date, most recent last.
+alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
+alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
+alias ldir='ls -alF | grep ^d'
+alias llink='ls -alF | grep ^l'
+alias lll='ll -la | less'
+
+#alias cd.	   'cd ..'
+#alias ..	      'cd ..'
+#alias cd..	   'cd ../..'
+#alias cd...	   'cd ../../../'
+#alias cd....	'cd ../../../../'
+#alias cd.....	'cd ../../../../../'
+#alias cdt	   'cd \!*; lt'
+#alias cdtmp    'cd /user/${USER}.tmp'
+#alias cdold    'cd /user/${USER}.old'
+
+#
+#alias dfh	   'df -h .'
+#alias dftmp	   'df -h /user/$USER.tmp'
+#alias dush	   'du -sh'
+#alias pushd	'pushd .'
+
+alias g='grep --color -i'
+alias envg='env | grep --color -i'
+alias histg='history | g'
+alias netg='netstat | g'
+function gl { grep --color -i "$@" | less; }
+function grall { grep -ir "$1" *; }
+
+#alias history	'history|tail \!*'
+#alias realrm	'/usr/bin/rm \!:*'
+#alias rm	   'mv \!:* $HOME/.trash'
+#alias rmall	   'rm -rf \!*'
+
+#alias mydisp   'echo DISPLAY : $DISPLAY'
+#alias disp     'setenv DISPLAY $HOST`ps aux | grep "$USER.*xinit.*gowm" | grep Xgo | grep -v grep | sed "s/.*\(:[0-9]*\).*/\1/"`; mydisp'
+#alias vncdisp  'setenv DISPLAY `ls -t1 $HOME/.vnc/*.log | head -1 | xargs basename | sed "s:\.log::"`; mydisp'
+#alias vnc_xl	'vncserver -depth 24 -geometry 1920x1140'
+#alias vnc_xl	'vncserver -depth 24 -geometry 1920x1135'
+#alias vnc_l	'vncserver -depth 24 -geometry 1280x965'
+#alias vnc_s	'vncserver -depth 24 -geometry 1024x712'
+#alias gt	   'gnome-terminal --foreground=white &'
+
+#alias diff_scan	'diff --brief -r --ignore-matching-lines \# \!:*'
+#alias diff_brief	'diff --brief -b -B -r \!:* |grep -iv cvs'
+
+#alias mana	   'cat $HOME/.aliases.ina |grep --color -i \!:*'
+#alias docs     'grep --color -i \!:2 $HOME/docs/\!:1.txt'
+#alias vimtip	'grep --color -i \!:* $HOME/docs/vimtips'
+#alias uvmhelp 'firefox "$UVMHOME/docs/html/index.html" &'
+
+#alias mac_info	'cat /proc/version;uname -a; cat /etc/SuSE-release'
+
+#alias tmux     'setenv LD_LIBRARY_PATH $HOME/.bin_libevent/lib:$LD_LIBRARY_PATH; \tmux'
+#alias tmux_old '/vl/edatools/bin/tmux'
+
+#alias xtsmall	'xterm -font 6x13 -fg green -bg black &'
+#alias xtblack	'xterm -font 6x13 -bg black -fg palegoldenrod -T "xterm :: ina" &'
+#alias xtdblue   'xterm -font 6x13 -bg darkblue -fg palegoldenrod -T "xterm :: ina" -display $DISPLAY &'
+#alias xtdgreen  'xterm -font 6x13 -bg darkgreen -fg palegoldenrod -T "xterm :: ina" -display $DISPLAY &'
+#alias xtdred    'xterm -font 6x13 -bg darkred -fg palegoldenrod -T "xterm :: ina" -display $DISPLAY &'
+#alias xblue     'xterm -font 8x13 -bg blue -fg palegoldenrod -T "xterm :: ina" -display $DISPLAY &'
+#alias xgreen    'xterm -font 8x13 -bg green -fg palegoldenrod -T "xterm :: ina" -display $DISPLAY &'
+#alias xred      'xterm -font 8x13 -bg red -fg palegoldenrod -T "xterm :: ina" -display $DISPLAY &'
+#alias xtorange 'xterm -font 6x13 -bg orange -fg black -T "xterm :: ina" -display $DISPLAY &'
+#alias xlgreen   'xterm -font 8x13 -bg lightgreen -fg black -T "xterm :: ina" -display $DISPLAY  &'
+#alias xpurple   'xterm -font 8x13 -bg purple -fg black -T "xterm :: ina" -display $DISPLAY &'
+#alias xpink     'xterm -font 8x13 -bg pink -fg black -T "xterm :: ina" -display $DISPLAY &'
+#alias xlblue    'xterm -font 8x13 -bg lightblue -fg black -T "xterm :: ina" -display $DISPLAY &'
+#alias xpale     'xterm -font 8x13 -bg palegoldenrod -fg black -T "xterm :: ina" -display $DISPLAY &'
+#alias xtmaroon  'xterm -font 6x13 -bg maroon -fg palegoldenrod -T "xterm :: ina" -display $DISPLAY &'
+
+#alias ksdgreen    'konsole --schema GreenOnBlack &'
+#alias ksblack     'konsole --schema WhiteOnBlack &'
+
+#alias newtmuxsetup   'tmux new-session "tmux source-file ~/.tmux.setup"'
+
+# find all #if tags in some files:
+# g "#if" src/common/main/rgx_tf1* | sort -u | cut -d ":" -f2 | sed "s:\!::g" | sed "s:#if::;s: ::g" | sed "s:&&:\n:g;s:||:\n:g" | sort -u
+
