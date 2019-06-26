@@ -6,7 +6,7 @@ PWD=`pwd`
 #ln -sf $PWD/.bashrc ~/.bashrc
 
 # tmux
-ln -sf $PWD/tmux ~/.tmux.conf 
+ln -sf $PWD/tmux.conf ~/.tmux.conf 
 
 # xbindkeys
 #ln -sf $PWD/xbindkeysrc ~/.xbindkeysrc
